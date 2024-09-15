@@ -1,0 +1,73 @@
+ {% extends 'base.html' %} {%block title%} Calculator{%endblock title %} {% block Style %}
+<style>
+    body {
+        background-color: #212121;
+    }
+    
+    .H1 {
+        color: aliceblue;
+        size-adjust: 40%;
+        margin-top: 6%;
+        margin-left: 20%;
+        margin-right: 20%;
+        border: 2px solid whitesmoke;
+        border-radius: 40px;
+    }
+    
+    .mb-3 {
+        color: aliceblue;
+    }
+    
+    .form-label {
+        font-size: medium;
+        font-weight: bold;
+    }
+    
+    .Box {
+        margin: 25px;
+        margin-bottom: 10%;
+    }
+    
+    .h2 {
+        text-align: center;
+    }
+    
+    .form-control {
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .bt {
+        text-align: center;
+    }
+</style>
+{% endblock %} {% block body %}
+<div class="H1" aria-setsize="100%">
+    <h2 class="h2"><b> BMI Calculator</b></h2>
+
+    <div class="Box">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Height </label>
+                <input type="number" class="form-control" name="height" placeholder="Height in CM">
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Weight </label>
+                <input type="number" class="form-control" name="weight" placeholder="Weight in KG">
+
+            </div>
+
+            <div class="bt">
+                <button type="submit" class="btn btn-primary">Calculate</button></div>
+            <div class="mb-3">
+                <label sty for="exampleInputEmail1" class="form-label">Your BMI </label>
+                <input type="text" class="form-control" value="{{out}}">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock body %}
